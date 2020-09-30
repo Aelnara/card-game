@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { CardsProvider } from 'contexts/CardsContext'
+import { EnemyProvider } from 'contexts/EnemyContext'
+import { PlayerProvider } from 'contexts/PlayerContext'
+import Game from 'components/Game/Game'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+   return (
+      <CardsProvider>
+         <PlayerProvider>
+            <EnemyProvider>
+               <Game />
+            </EnemyProvider>
+         </PlayerProvider>
+      </CardsProvider>
+   )
 }
-
-export default App;
