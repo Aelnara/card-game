@@ -36,7 +36,7 @@ export function CardsProvider(props) {
    }
    
    return (
-      <CardsContext.Provider value={{ deck, hand, getTopFromDeck, discardPile, cardPlayed, recycleDeck }}>
+      <CardsContext.Provider value={{ deck, hand, getTopFromDeck, discardPile, cardPlayed }}>
          {props.children}
       </CardsContext.Provider>
    );

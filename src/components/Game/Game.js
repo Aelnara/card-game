@@ -10,13 +10,12 @@ import GameStyles from './GameStyles'
 
 export default function Game() {
    const classes = GameStyles();
-   const { getTopFromDeck, recycleDeck } = useContext(CardsContext)
+   const { getTopFromDeck } = useContext(CardsContext)
    // const [turns, setTurns] = useState('playerTurn')
    
    return (
       <div className={classes.Game}>
-         <Button variant='contained' onClick={getTopFromDeck}>Fill Hand</Button>
-         <Button variant='contained' onClick={recycleDeck}>Recycle deck</Button>
+         <Button variant='contained' onClick={getTopFromDeck}>Get Card</Button>
          
          <Deck />
          <Hand />
