@@ -1,6 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react'
 
-export const PlayerContext = createContext();
+export const PlayerContext = createContext()
 
 export function PlayerProvider(props) {
    const [player, setPlayer] = useState({
@@ -8,7 +8,7 @@ export function PlayerProvider(props) {
       health: 70,
       maxHealth: 70,
       block: 0
-   });
+   })
    
    const initializePlayer = (name, health) => setPlayer({ name, health });
    
@@ -19,7 +19,7 @@ export function PlayerProvider(props) {
          player.health = 0
       }
       return player
-   });
+   })
    
    const changePlayerBlock = value => setPlayer(prevState => {
       const player = {...prevState};
@@ -28,11 +28,11 @@ export function PlayerProvider(props) {
          player.block = 0
       }
       return player
-   });
+   })
    
    return (
       <PlayerContext.Provider value={{ player, initializePlayer, changePlayerHealth, changePlayerBlock }}>
          {props.children}
       </PlayerContext.Provider>
-   );
+   )
 }

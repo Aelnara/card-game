@@ -1,7 +1,7 @@
 import React, { useEffect, createContext, useState } from 'react'
 import { getBasicDeck, shuffleArray } from 'utils/basicDeck'
 
-export const CardsContext = createContext();
+export const CardsContext = createContext()
 
 export function CardsProvider(props) {
    const [deck, setDeck] = useState(() => getBasicDeck(5,5))
@@ -22,10 +22,16 @@ export function CardsProvider(props) {
       setDeck((prevState) => prevState.slice(1))
    }
    
-   const cardPlayed = (playedCard) => {
+   const discardCard = (playedCard) => {
       setDiscardPile((prevState) => [...prevState, playedCard])
       
       setHand((prevState) => prevState.filter(card => card.id !== playedCard.id))
+   }
+   
+   const discardHand = () => {
+      setDiscardPile((prevState) => [...prevState, ...hand])
+      
+      setHand([])
    }
    
    const recycleDeck = () => {
@@ -36,8 +42,8 @@ export function CardsProvider(props) {
    }
    
    return (
-      <CardsContext.Provider value={{ deck, hand, getTopFromDeck, discardPile, cardPlayed }}>
+      <CardsContext.Provider value={{ deck, hand, getTopFromDeck, discardPile, discardCard, discardHand }}>
          {props.children}
       </CardsContext.Provider>
-   );
+   )
 }

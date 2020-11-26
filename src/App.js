@@ -2,6 +2,7 @@ import React from 'react'
 import { CardsProvider } from 'contexts/CardsContext'
 import { EnemyProvider } from 'contexts/EnemyContext'
 import { PlayerProvider } from 'contexts/PlayerContext'
+import { FightProvider } from 'contexts/FightContext'
 import Game from 'components/Game/Game'
 
 export default function App() {
@@ -9,7 +10,9 @@ export default function App() {
       <CardsProvider>
          <PlayerProvider>
             <EnemyProvider>
-               <Game />
+               <FightProvider>
+                  <Game />
+               </FightProvider>
             </EnemyProvider>
          </PlayerProvider>
       </CardsProvider>

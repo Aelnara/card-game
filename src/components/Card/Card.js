@@ -9,7 +9,7 @@ import defend from 'assets/images/defend.png'
 
 export default function Card({ card, first, secondFirst, middle, secondLast, last }) {
    const classes = CardStyles()
-   const { cardPlayed } = useContext(CardsContext)
+   const { discardCard } = useContext(CardsContext)
    const { changeEnemyHealth } = useContext(EnemyContext)
    const { changePlayerBlock } = useContext(PlayerContext)
    
@@ -22,7 +22,7 @@ export default function Card({ card, first, secondFirst, middle, secondLast, las
          changePlayerBlock(card.value)
       }
       
-      cardPlayed(card)
+      discardCard(card)
    }
    
    return (
